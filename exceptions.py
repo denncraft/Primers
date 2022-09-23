@@ -13,7 +13,26 @@ except ZeroDivisionError:
 
 #int(input('Введите значение: '))
 try:
+    1 / 0
+    'hello'[9]
     int(input('Введите значение: '))
+
 except ValueError:
     # можно кастомизировать выводимые сообщения исключений вызовом raise
     raise ValueError("Необходимо вводить только цифры")
+
+# у одного блока try могут быть описаны несколько различных исключений
+except ZeroDivisionError:
+    print('На ноль делить нельзя')
+
+# роверяемые исключения можно комбинировать в одном блоке except
+except (KeyError, IndexError):
+    print('LookupError')
+
+# блок else выполнится при ошибке, но только если не происходит исключений
+else:
+    print('Блок else')
+
+# блок finaly выполняется в любом случае
+finally:
+    print('Блок finaly выполняется в любом случае')
